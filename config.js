@@ -8,12 +8,6 @@
         src="images/PXL_20241123_160435095.jpg"
         alt="Kenzie ❤️"
     />
-</div>
-
-<div id="question"></div>
-<div id="controls"></div>
-
-<script>
 // ============================================
 // 💝 CUSTOMIZE YOUR VALENTINE'S WEBSITE HERE 💝
 // ============================================
