@@ -1,13 +1,6 @@
 // ============================================
 // 💝 CUSTOMIZE YOUR VALENTINE'S WEBSITE HERE 💝
 // ============================================
-
-<!-- Persistent Image -->
-<div id="persistent-image">
-    <img
-        src="images/PXL_20241123_160435095.jpg"
-        alt="Kenzie ❤️"
-    />
 // ============================================
 // 💝 CUSTOMIZE YOUR VALENTINE'S WEBSITE HERE 💝
 // ============================================
