@@ -2,48 +2,6 @@
 // 💝 CUSTOMIZE YOUR VALENTINE'S WEBSITE HERE 💝
 // ============================================
 
-    #persistent-image {
-        text-align: center;
-        margin: 20px 0;
-    }
-
-    #persistent-image img {
-        width: 260px;
-        border-radius: 20px;
-        box-shadow: 0 10px 25px rgba(0,0,0,0.25);
-    }
-
-    #question {
-        font-size: 22px;
-        margin-top: 20px;
-    }
-
-    button {
-        background: #ff6b6b;
-        color: white;
-        border: none;
-        padding: 12px 20px;
-        margin: 10px;
-        border-radius: 20px;
-        font-size: 16px;
-        cursor: pointer;
-    }
-
-    button:hover {
-        background: #ff8787;
-    }
-
-    input[type="range"] {
-        width: 80%;
-        margin-top: 20px;
-    }
-</style>
-</head>
-
-<body>
-
-<h1 id="title"></h1>
-
 <!-- Persistent Image -->
 <div id="persistent-image">
     <img
