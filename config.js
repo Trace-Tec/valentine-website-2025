@@ -2,88 +2,146 @@
 // 💝 CUSTOMIZE YOUR VALENTINE'S WEBSITE HERE 💝
 // ============================================
 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Will You Be My Valentine? 💝</title>
+
+<style>
+    body {
+        margin: 0;
+        min-height: 100vh;
+        font-family: Arial, sans-serif;
+        text-align: center;
+        background: linear-gradient(135deg, #ffafbd, #ffc3a0);
+        color: #ff4757;
+        overflow-x: hidden;
+    }
+
+    h1 {
+        margin-top: 30px;
+    }
+
+    #persistent-image {
+        text-align: center;
+        margin: 20px 0;
+    }
+
+    #persistent-image img {
+        width: 260px;
+        border-radius: 20px;
+        box-shadow: 0 10px 25px rgba(0,0,0,0.25);
+    }
+
+    #question {
+        font-size: 22px;
+        margin-top: 20px;
+    }
+
+    button {
+        background: #ff6b6b;
+        color: white;
+        border: none;
+        padding: 12px 20px;
+        margin: 10px;
+        border-radius: 20px;
+        font-size: 16px;
+        cursor: pointer;
+    }
+
+    button:hover {
+        background: #ff8787;
+    }
+
+    input[type="range"] {
+        width: 80%;
+        margin-top: 20px;
+    }
+</style>
+</head>
+
+<body>
+
+<h1 id="title"></h1>
+
+<!-- Persistent Image -->
+<div id="persistent-image">
+    <img
+        src="images/PXL_20241123_160435095.jpg"
+        alt="Kenzie ❤️"
+    />
+</div>
+
+<div id="question"></div>
+<div id="controls"></div>
+
+<script>
 const CONFIG = {
-    // Your Valentine's name that will appear in the title
-    // Example: "Jade", "Sarah", "Mike"
     valentineName: "Kenzie",
 
-    // The title that appears in the browser tab
-    // You can use emojis! 💝 💖 💗 💓 💞 💕
-    pageTitle: "Will You Be My Valentine? 💝",
-
-    // Floating emojis that appear in the background
-    // Find more emojis at: https://emojipedia.org
-    floatingEmojis: {
-        hearts: ['❤️', '💖', '💝', '💗', '💓'],  // Heart emojis
-        bears: ['🧸', '🐻']                       // Cute bear emojis
-    },
-
-    // Questions and answers
-    // Customize each question and its possible responses
     questions: {
         first: {
-            text: "Do you like me?",                                    // First interaction
-            yesBtn: "Yes",                                             // Text for "Yes" button
-            noBtn: "No",                                               // Text for "No" button
-            secretAnswer: "I don't like you, I love you! ❤️"           // Secret hover message
+            text: "Do you like me?",
+            yesBtn: "Yes",
+            noBtn: "No"
         },
         second: {
-            text: "How much do you love me?",                          // For the love meter
-            startText: "This much!",                                   // Text before the percentage
-            nextBtn: "Next ❤️"                                         // Text for the next button
+            text: "How much do you love me?"
         },
         third: {
-            text: "Will you be my Valentine on February 14th, 2026? 🌹", // The big question!
-            yesBtn: "Yes!",                                             // Text for "Yes" button
-            noBtn: "No"                                                 // Text for "No" button
+            text: "Will you be my Valentine on February 14th, 2026? 🌹",
+            yesBtn: "Yes!",
+            noBtn: "No"
         }
-    },
-
-    // Love meter messages
-    // They show up depending on how far they slide the meter
-    loveMessages: {
-        extreme: "WOOOOW You love me that much?? 🥰🚀💝",  // Shows when they go past 5000%
-        high: "To infinity and beyond! 🚀💝",              // Shows when they go past 1000%
-        normal: "And beyond! 🥰"                           // Shows when they go past 100%
-    },
-
-    // Messages that appear after they say "Yes!"
-    celebration: {
-        title: "Yay! I'm the luckiest man in the world! 🎉💝💖💝💓",
-        message: "I can't wait to see you and spend valentine’s weekend with you...so much in store!",
-        emojis: "🎁💖🤗💝💋❤️💕"  // These will bounce around
-    },
-
-    // Color scheme for the website
-    // Use https://colorhunt.co or https://coolors.co to find beautiful color combinations
-    colors: {
-        backgroundStart: "#ffafbd",      // Gradient start (try pastel colors for a soft look)
-        backgroundEnd: "#ffc3a0",        // Gradient end (should complement backgroundStart)
-        buttonBackground: "#ff6b6b",     // Button color (should stand out against the background)
-        buttonHover: "#ff8787",          // Button hover color (slightly lighter than buttonBackground)
-        textColor: "#ff4757"             // Text color (make sure it's readable!)
-    },
-
-    // Animation settings
-    // Adjust these if you want faster/slower animations
-    animations: {
-        floatDuration: "15s",           // How long it takes hearts to float up (10-20s recommended)
-        floatDistance: "50px",          // How far hearts move sideways (30-70px recommended)
-        bounceSpeed: "0.5s",            // Speed of bouncing animations (0.3-0.7s recommended)
-        heartExplosionSize: 1.5         // Size of heart explosion effect (1.2-2.0 recommended)
-    },
-
-    // Background Music (Optional)
-    // Add your own music URL after getting proper licenses
-    music: {
-        enabled: true,                     // Music feature is enabled
-        autoplay: true,                    // Try to autoplay (note: some browsers may block this)
-        musicUrl: "https://res.cloudinary.com/dkgxxojop/video/upload/v1768856165/Yebbas_Heartbreak_igopbh.mp3", // Music streaming URL
-        startText: "🎵 Play Music",        // Button text to start music
-        stopText: "🔇 Stop Music",         // Button text to stop music
-        volume: 0.5                        // Volume level (0.0 to 1.0)
     }
 };
+
+document.getElementById("title").textContent =
+    `Hey ${CONFIG.valentineName} 💝`;
+
+const questionEl = document.getElementById("question");
+const controlsEl = document.getElementById("controls");
+
+function firstQuestion() {
+    questionEl.textContent = CONFIG.questions.first.text;
+    controlsEl.innerHTML = `
+        <button onclick="secondQuestion()">Yes</button>
+        <button onclick="alert('Wrong answer 😜')">No</button>
+    `;
+}
+
+function secondQuestion() {
+    questionEl.textContent = CONFIG.questions.second.text;
+    controlsEl.innerHTML = `
+        <input type="range" min="0" max="100" value="50" />
+        <br />
+        <button onclick="thirdQuestion()">Next ❤️</button>
+    `;
+}
+
+function thirdQuestion() {
+    questionEl.textContent = CONFIG.questions.third.text;
+    controlsEl.innerHTML = `
+        <button onclick="yesAnswer()">Yes!</button>
+        <button onclick="alert('Try again 😏')">No</button>
+    `;
+}
+
+function yesAnswer() {
+    questionEl.textContent =
+        "Yay! I'm the luckiest man in the world! 🎉💝";
+    controlsEl.innerHTML =
+        "<p>❤️❤️❤️</p>";
+}
+
+firstQuestion();
+</script>
+
+</body>
+</html>
+
 
 // Don't modify anything below this line unless you know what you're doing
 window.VALENTINE_CONFIG = CONFIG; 
